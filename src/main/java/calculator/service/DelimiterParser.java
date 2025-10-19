@@ -10,11 +10,11 @@ public class DelimiterParser {
     public String parse(String input) {
         String delimiter = getDelimiter(input);
         String expressionPart = getExpression(input);
-        return  String.join("", expressionPart.split(delimiter));
+        return String.join("", expressionPart.split(delimiter));
     }
 
     private String getExpression(String input) {
-        if(hasCustomDelimiter(input)) {
+        if (hasCustomDelimiter(input)) {
             int delimiterEndIndex = input.indexOf(CUSTOM_DELIMITER_SUFFIX);
             return input.substring(delimiterEndIndex + 1);
         }
@@ -26,7 +26,7 @@ public class DelimiterParser {
     }
 
     private String getDelimiter(String input) {
-        if(hasCustomDelimiter(input)) {
+        if (hasCustomDelimiter(input)) {
             String customDelimiter = extractCustomDelimiter(input);
             return buildDelimiterPattern(customDelimiter);
         }
@@ -53,13 +53,13 @@ public class DelimiterParser {
     }
 
     private void validateCustomDelimiterFormat(int delimiterEndIndex) {
-        if(delimiterEndIndex == -1) {
+        if (delimiterEndIndex == -1) {
             throw new IllegalArgumentException("커스텀 구분자 지원 형식을 지켜주세요");
         }
     }
 
     private void validateDelimiterCount(String customDelimiter) {
-        if(customDelimiter.length() != 1) {
+        if (customDelimiter.length() != 1) {
             throw new IllegalArgumentException("커스텀 구분자는 1개의 문자만 가능합니다.");
         }
     }
