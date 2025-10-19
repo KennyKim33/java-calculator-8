@@ -25,7 +25,7 @@ class DelimiterParserTest {
 
     @Test
     void 정상_커스텀_구분자_파싱_테스트() {
-        String input = "//+\n1+2:3";
+        String input = "//+\\n1+2:3";
 
         String parsed = delimiterParser.parse(input);
 
@@ -43,7 +43,7 @@ class DelimiterParserTest {
 
     @Test
     void 커스텀_구분자_개수_오류_2개_이상() {
-        String input = "//++\n1++2++3";
+        String input = "//++\\n1++2++3";
 
         assertThatThrownBy(() -> delimiterParser.parse(input))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -52,7 +52,7 @@ class DelimiterParserTest {
 
     @Test
     void 커스텀_구분자_개수_오류_0개() {
-        String input = "//\n1:2:3";
+        String input = "//\\n1:2:3";
 
         assertThatThrownBy(() -> delimiterParser.parse(input))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -62,7 +62,7 @@ class DelimiterParserTest {
 
     @Test
     void 커스텀_구분자와_기본_구분자_혼용() {
-        String input = "//!\n1!2:3;4";
+        String input = "//!\\n1!2:3;4";
 
         String parsed = delimiterParser.parse(input);
 

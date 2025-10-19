@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 public class DelimiterParser {
     private static final String DEFAULT_DELIMITER = "[:;]";
     private static final String CUSTOM_DELIMITER_PREFIX = "//";
-    private static final String CUSTOM_DELIMITER_SUFFIX = "\n";
+    private static final String CUSTOM_DELIMITER_SUFFIX = "\\n";
 
     public String parse(String input) {
         String delimiter = getDelimiter(input);
@@ -16,7 +16,7 @@ public class DelimiterParser {
     private String getExpression(String input) {
         if (hasCustomDelimiter(input)) {
             int delimiterEndIndex = input.indexOf(CUSTOM_DELIMITER_SUFFIX);
-            return input.substring(delimiterEndIndex + 1);
+            return input.substring(delimiterEndIndex + CUSTOM_DELIMITER_SUFFIX.length());
         }
         return input;
     }
