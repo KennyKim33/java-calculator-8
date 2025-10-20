@@ -44,7 +44,7 @@ class SumCalculatorTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"1a3", "abc", "12:3", "1;2", "1+2", "1.2", "1 2", "//1"})
+    @ValueSource(strings = {"1a3", "abc", "12:3", "1;2", "1+2", "1.2", "1 2", "//1","-1"})
     void 숫자_외_문자_포함_예외(String input) {
 
         assertThatThrownBy(() -> sumCalculator.sum(input))

@@ -1,7 +1,7 @@
 package calculator.service;
 
 public class SumCalculator {
-    private static final String CALCULATE_REGEX = "\\d+";
+    private static final String CALCULATE_REGEX = "^[1-9]\\d*$";
 
     public int sum(String parsedInput) {
         validateOnlyDigits(parsedInput);
