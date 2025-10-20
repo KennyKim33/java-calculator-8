@@ -16,7 +16,7 @@ class DelimiterParserTest {
 
     @Test
     void 정상_기본_구분자_파싱_테스트() {
-        String input = "1:2;3";
+        String input = "1:2,3";
 
         String parsed = delimiterParser.parse(input);
 
@@ -62,7 +62,7 @@ class DelimiterParserTest {
 
     @Test
     void 커스텀_구분자와_기본_구분자_혼용() {
-        String input = "//!\\n1!2:3;4";
+        String input = "//!\\n1!2:3,4";
 
         String parsed = delimiterParser.parse(input);
 
